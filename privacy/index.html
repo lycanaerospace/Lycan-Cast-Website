@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Privacy Policy for Lycan Cast — the drone camera app by Lycan Aerospace. No data collected, no internet access, everything stays on your device.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://lycancast.com/privacy/">
+<title>Privacy Policy — Lycan Cast</title>
+<link rel="icon" type="image/png" href="lycancast-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────── Tokens (shared with lycancast.com) ─────────────── */
+:root {
+    --bg:           #ffffff;
+    --bg-soft:      #f6f9fc;
+    --ink:          #0f172a;
+    --ink-2:        #475569;
+    --ink-3:        #5b6b82;
+    --line:         #e2e8f0;
+    --brand:        #0ea5e9;
+    --brand-strong: #0284c7;
+    --brand-deep:   #0369a1;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+/* ─────────────── Base ─────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--brand-deep); text-decoration: none; }
+a:hover { text-decoration: underline; }
+::selection { background: rgba(14,165,233,.18); }
+:focus-visible { outline: 2px solid var(--brand-strong); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* ─────────────── Top bar (same as home) ─────────────── */
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(246,249,252,.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+}
+.bar-in { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.bar-left { display: flex; align-items: center; gap: 14px; }
+.back {
+    width: 38px; height: 38px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink-2);
+    transition: border-color .2s, color .2s, transform .2s;
+}
+.back:hover { border-color: var(--brand); color: var(--ink); transform: translateX(-2px); text-decoration: none; }
+.brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 600; font-size: 1rem; letter-spacing: -.01em;
+    color: var(--ink);
+}
+/* multiply blends the PNG's baked white background into the light bar,
+   so only the delta mark shows — no white box. */
+.brand img { width: 28px; height: 28px; mix-blend-mode: multiply; }
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 18px;
+    border-radius: 980px;
+    background: var(--brand-strong);
+    color: #fff;
+    font-weight: 600; font-size: .88rem;
+    transition: transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s, background .2s;
+}
+.btn:hover {
+    background: var(--brand-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px -10px rgba(2,132,199,.45);
+    text-decoration: none;
+}
+
+/* ─────────────── Document ───────────────
+   Fills the same 1120px wrap as the top bar — content spans edge to
+   edge under the logo and the Get-the-app button, like the homepage. */
+.doc { padding: clamp(48px, 7vw, 80px) 0 0; }
+.doc h1 {
+    font-size: clamp(2.2rem, 5vw, 3.1rem);
+    font-weight: 700;
+    letter-spacing: -.03em;
+    line-height: 1.08;
+}
+.updated { margin-top: 12px; font-size: .9rem; color: var(--ink-3); }
+
+/* table of contents */
+.toc {
+    margin: clamp(28px, 4vw, 40px) 0 clamp(36px, 5vw, 52px);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 28px;
+}
+.toc-title {
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--brand-strong);
+    margin-bottom: 12px;
+}
+.toc ol { padding-left: 1.2em; columns: 2; column-gap: 36px; }
+.toc li { margin: .32em 0; break-inside: avoid; font-size: .95rem; }
+.toc a { color: var(--ink-2); }
+.toc a:hover { color: var(--brand-deep); }
+@media (max-width: 600px) { .toc ol { columns: 1; } }
+
+/* sections */
+.doc h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    margin: clamp(40px, 6vw, 56px) 0 14px;
+    scroll-margin-top: 88px;
+}
+.doc h2 .num { color: var(--brand-strong); margin-right: .5em; }
+.doc h3 {
+    font-size: 1.04rem;
+    font-weight: 600;
+    margin: 26px 0 8px;
+    color: var(--ink);
+}
+.doc p { color: var(--ink-2); margin-bottom: 14px; }
+.doc p.lead { color: var(--ink); font-size: 1.08rem; }
+.doc strong { color: var(--ink); }
+.doc em { font-style: normal; font-family: var(--mono); font-size: .92em; color: var(--ink); }
+.doc ul { margin: 0 0 16px 1.25em; }
+.doc li { color: var(--ink-2); margin-bottom: 7px; }
+.doc li::marker { color: var(--brand-strong); }
+.doc code {
+    font-family: var(--mono);
+    font-size: .84em;
+    color: #075985;
+    background: #eef6fb;
+    border: 1px solid #d8eaf5;
+    padding: 1px 6px;
+    border-radius: 5px;
+}
+
+/* callout */
+.callout {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--brand-strong);
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: var(--ink-2);
+    margin: 18px 0 6px;
+}
+.callout strong { color: var(--ink); }
+
+/* permissions table */
+.tbl-wrap { overflow-x: auto; margin: 18px 0 10px; border: 1px solid var(--line); border-radius: 14px; }
+table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: .92rem; }
+thead th {
+    text-align: left;
+    font-size: .76rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    background: var(--bg-soft);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+}
+tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-2);
+    vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ─────────────── Footer ─────────────── */
+.pfoot {
+    margin-top: clamp(56px, 8vw, 88px);
+    border-top: 1px solid var(--line);
+    background: var(--bg-soft);
+    padding: 30px 0 40px;
+}
+.pfoot-in {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 12px 28px;
+    font-size: .88rem;
+    color: var(--ink-3);
+}
+.pfoot a { color: var(--ink-3); }
+.pfoot a:hover { color: var(--ink); }
+
+/* very narrow phones — compact the top bar so it never overflows */
+@media (max-width: 380px) {
+    .bar-in { gap: 10px; }
+    .bar-left { gap: 10px; }
+    .back { width: 34px; height: 34px; }
+    .brand { font-size: .95rem; gap: 8px; }
+    .brand img { width: 24px; height: 24px; }
+    .btn { padding: 8px 13px; font-size: .82rem; }
+}
+
+@media print { .bar, .pfoot, .btn { display: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="bar">
+    <div class="wrap bar-in">
+        <div class="bar-left">
+            <a class="back" href="../index.html" aria-label="Back to home">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            </a>
+            <div class="brand">
+                <img src="lycancast-icon.png" alt="">
+                Lycan Cast
+            </div>
+        </div>
+        <a class="btn" href="../index.html#get">Get the app</a>
+    </div>
+</header>
+
+<main class="wrap">
+<div class="doc">
+
+    <h1>Privacy Policy</h1>
+    <p class="updated"><strong>Last updated:</strong> 10 June 2026</p>
+
+    <nav class="toc" aria-label="Contents">
+        <div class="toc-title">Contents</div>
+        <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#scope">Scope of This Policy</a></li>
+            <li><a href="#no-collection">Information We Do Not Collect</a></li>
+            <li><a href="#on-device">On-Device Processing</a></li>
+            <li><a href="#permissions">Permissions Used by the Application</a></li>
+            <li><a href="#storage">Local Storage and Data Retention</a></li>
+            <li><a href="#third-parties">Third-Party Services</a></li>
+            <li><a href="#security">Data Security</a></li>
+            <li><a href="#rights">Your Rights and Choices</a></li>
+            <li><a href="#children">Children's Privacy</a></li>
+            <li><a href="#international">International Users</a></li>
+            <li><a href="#changes">Changes to This Policy</a></li>
+            <li><a href="#contact">Contact Information</a></li>
+        </ol>
+    </nav>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="introduction"><span class="num">1.</span>Introduction</h2>
+
+    <p class="lead">
+        Lycan Cast is an Android application developed and maintained by Lycan
+        Aerospace. The application allows pilots and operators to view, record,
+        and capture still frames from a USB UVC video receiver connected to an
+        Android device via a USB OTG cable.
+    </p>
+
+    <p>
+        Lycan Aerospace built Lycan Cast to be a focused tool with the smallest
+        possible footprint on user privacy. The application does not require
+        an account, does not transmit data over the network, and does not
+        integrate any third-party analytics, advertising, or tracking
+        frameworks. This policy describes, in concrete terms, what that means
+        in practice.
+    </p>
+
+    <p>
+        Throughout this document, references to "we", "us", "our", and
+        "Lycan Aerospace" refer to the company. References to "the
+        application", "the app", or "Lycan Cast" refer to the Lycan Cast Android
+        application published on the Google Play Store and any associated
+        Android Package files distributed by Lycan Aerospace.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="scope"><span class="num">2.</span>Scope of This Policy</h2>
+
+    <p>
+        This privacy policy applies to:
+    </p>
+    <ul>
+        <li>The Lycan Cast Android application in all its distribution channels (Google Play Store, sideload APK, and internal test tracks).</li>
+        <li>Any communication you initiate with Lycan Aerospace by email in connection with the application.</li>
+    </ul>
+
+    <p>
+        This policy <strong>does not</strong> cover websites, services, or
+        products operated by third parties, including the manufacturer of any
+        USB camera or video receiver that you connect to your Android device.
+        Those third parties operate under their own privacy policies, which
+        you should review separately.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="no-collection"><span class="num">3.</span>Information We Do Not Collect</h2>
+
+    <p>
+        Lycan Cast does not collect, transmit, or share any personal information
+        about you. We do not maintain any user accounts, server-side databases,
+        or remote logs that are attributable to your installation of the
+        application. Specifically:
+    </p>
+
+    <ul>
+        <li>The application does not request or collect your name, email address, postal address, telephone number, date of birth, or any other identifying information.</li>
+        <li>The application does not collect or transmit your device identifier (such as Android ID, IMEI, MAC address, or advertising ID).</li>
+        <li>The application does not collect your location at any level of precision.</li>
+        <li>The application does not collect lists of installed applications, contacts, call logs, calendar entries, SMS messages, browser history, or files outside of the application's own working directories.</li>
+        <li>The application does not transmit video, audio, images, or any other content captured during use to Lycan Aerospace or any other party.</li>
+        <li>The application contains no analytics SDKs, crash-reporting SDKs, advertising frameworks, or tracking pixels of any kind.</li>
+    </ul>
+
+    <div class="callout">
+        <strong>In plain terms:</strong> nothing leaves your device because of
+        Lycan Cast. The application has no network code in its production build.
+        The Android system's network permission is not declared in the
+        application manifest.
+    </div>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="on-device"><span class="num">4.</span>On-Device Processing</h2>
+
+    <p>
+        All operations that Lycan Cast performs happen locally on your Android
+        device. This section describes the categories of data the application
+        works with internally, none of which leaves the device.
+    </p>
+
+    <h3>4.1 Live video stream from the USB camera</h3>
+    <p>
+        When you connect a USB UVC video device, the application reads the
+        live MJPEG video stream from that device, decodes individual frames in
+        memory, and renders them to the application's display surface. The
+        live stream is not saved unless you explicitly start a recording.
+    </p>
+
+    <h3>4.2 Recorded video files</h3>
+    <p>
+        When you press the record button, the application encodes the live
+        stream as an H.264 MP4 file. The file is written to a folder of your
+        choice (either the device's standard <em>DCIM/LycanCast</em>
+        directory through Android's MediaStore, or to a folder you have
+        explicitly selected through Android's system file picker). The file
+        is yours; you can move it, copy it, share it, or delete it through
+        any file manager on your device.
+    </p>
+
+    <h3>4.3 Screen captures</h3>
+    <p>
+        When you press the capture button, the application encodes the most
+        recently displayed frame as a JPEG file in the same folder used for
+        recordings. The same rules apply: the file is yours and remains under
+        your control.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="permissions"><span class="num">5.</span>Permissions Used by the Application</h2>
+
+    <p>
+        The Android operating system requires that applications declare each
+        permission they use. The table below lists every permission the
+        application declares, why it is required, and whether the operating
+        system will prompt you to grant it at runtime.
+    </p>
+
+    <div class="tbl-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th>Permission</th>
+                <th>Purpose</th>
+                <th>Prompt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>android.hardware.usb.host</code> (feature)</td>
+                <td>Required for the application to communicate with USB video receivers connected through a USB OTG cable. Without this, the application has no source of video.</td>
+                <td>Per-device, when you plug in a new USB camera.</td>
+            </tr>
+            <tr>
+                <td><code>CAMERA</code></td>
+                <td>Required by some Android device manufacturers to access USB video class devices through the standard Android camera permission model, even though the application does not use the built-in Android camera.</td>
+                <td>At first launch.</td>
+            </tr>
+            <tr>
+                <td><code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_CONNECTED_DEVICE</code></td>
+                <td>Allows the live video stream to continue running while the user briefly switches to another application, and ensures the operating system does not terminate the application mid-recording.</td>
+                <td>Not user-prompted; granted at install.</td>
+            </tr>
+            <tr>
+                <td><code>POST_NOTIFICATIONS</code></td>
+                <td>Permits the application to display a status notification while a recording or live stream is active. Denial is non-fatal; the application continues to function without the notification.</td>
+                <td>At first launch on Android 13 and later.</td>
+            </tr>
+            <tr>
+                <td><code>READ_MEDIA_VIDEO</code></td>
+                <td>Allows the application to list recordings saved by previous sessions in the in-app recordings browser. Limited to videos within the application's own storage scope.</td>
+                <td>Not separately prompted on Android 13 and later.</td>
+            </tr>
+            <tr>
+                <td><code>WRITE_EXTERNAL_STORAGE</code> (Android 9 and earlier only)</td>
+                <td>Legacy storage permission used only on Android 9 or earlier. On Android 10 and later, the application uses scoped storage through MediaStore or Storage Access Framework instead, and this permission is not requested.</td>
+                <td>At first launch on Android 9 or earlier.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>
+        The application <strong>does not</strong> declare the
+        <code>INTERNET</code> permission. The Android operating system
+        therefore prevents the application from making any network connection
+        whatsoever, including over Wi-Fi, mobile data, Bluetooth network
+        sharing, or any other transport. This is a hard guarantee enforced by
+        the operating system, not a promise made by the application.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="storage"><span class="num">6.</span>Local Storage and Data Retention</h2>
+
+    <p>
+        Files created by the application (video recordings and screen
+        captures) are saved to one of the following locations, depending on
+        your settings:
+    </p>
+
+    <ul>
+        <li>The shared <em>DCIM/LycanCast</em> directory on your device's primary storage, accessible to any application with media-access permission.</li>
+        <li>A folder that you have explicitly selected using the Android Storage Access Framework picker. In this case, the application receives access only to the folder you selected.</li>
+    </ul>
+
+    <p>
+        Lycan Aerospace does not retain any of these files. They exist only
+        on your device and are subject to your control. Uninstalling the
+        application does not delete the files; you may keep, move, or delete
+        them through any file manager.
+    </p>
+
+    <p>
+        The application also writes a small amount of preference data
+        (selected save folder, last-used settings) to the standard Android
+        <em>SharedPreferences</em> store. This data is stored privately
+        within the application's sandbox, is never transmitted, and is
+        deleted automatically when the application is uninstalled.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="third-parties"><span class="num">7.</span>Third-Party Services</h2>
+
+    <p>
+        The application bundles the following open-source software components,
+        which run locally on your device. None of these components transmits
+        data to any external service:
+    </p>
+
+    <ul>
+        <li><strong>libusb</strong> and <strong>libuvc</strong> (LGPL / BSD) — used to communicate with the USB video device.</li>
+        <li><strong>libjpeg-turbo</strong> (BSD) — used to decode JPEG frames in software when needed.</li>
+        <li><strong>AndroidX support libraries</strong> (Apache 2.0) — standard Android user-interface components published by Google.</li>
+    </ul>
+
+    <p>
+        Source attribution and licence texts are included in the application's
+        About screen.
+    </p>
+
+    <p>
+        The application is distributed through the Google Play Store. When
+        you download or update the application through Google Play, Google
+        collects information independently in accordance with the
+        <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
+        Lycan Aerospace has no control over and no access to that information.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="security"><span class="num">8.</span>Data Security</h2>
+
+    <p>
+        Because the application does not collect or transmit user data,
+        traditional server-side data-breach scenarios do not apply. There
+        are no Lycan Aerospace databases that hold user records that could
+        be exposed.
+    </p>
+
+    <p>
+        Within your device, files written by the application are protected
+        by the standard Android sandbox model, which restricts access to the
+        application's private storage to the application itself and to
+        system-trusted backup processes. The application explicitly disables
+        Android's auto-backup feature for its own data so that recordings
+        and captured frames are not copied to Google Drive or any other
+        cloud backup service.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="rights"><span class="num">9.</span>Your Rights and Choices</h2>
+
+    <p>
+        Different jurisdictions grant users different rights with respect to
+        personal data. Because Lycan Cast does not collect personal data,
+        most of these rights are satisfied automatically. The summary below
+        explains how each commonly-cited right maps onto the application.
+    </p>
+
+    <h3>9.1 Right to access</h3>
+    <p>
+        Lycan Aerospace holds no personal data about you. There is no record
+        for us to produce on request.
+    </p>
+
+    <h3>9.2 Right to rectification</h3>
+    <p>
+        Not applicable, for the same reason.
+    </p>
+
+    <h3>9.3 Right to erasure ("right to be forgotten")</h3>
+    <p>
+        Files created on your device are erased by deleting them through
+        your file manager. Uninstalling the application removes the
+        application's private storage and preferences.
+    </p>
+
+    <h3>9.4 Right to data portability</h3>
+    <p>
+        Video and image files produced by the application are stored in
+        standard, widely-supported formats (H.264/MP4 and JPEG). You can
+        copy them off your device using any standard file transfer method.
+    </p>
+
+    <h3>9.5 Right to opt out of sale or sharing (California residents)</h3>
+    <p>
+        We do not sell or share personal data, so there is nothing to opt
+        out of. Lycan Aerospace makes no money from your use of Lycan Cast.
+    </p>
+
+    <h3>9.6 Right to lodge a complaint</h3>
+    <p>
+        Residents of the European Economic Area, the United Kingdom, and
+        certain other jurisdictions have the right to lodge a complaint
+        with their local data-protection authority. The contact details for
+        these authorities are publicly available from each authority's
+        official website.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="children"><span class="num">10.</span>Children's Privacy</h2>
+
+    <p>
+        Lycan Cast is intended for use by adult hobbyist and professional
+        drone operators. The application is not designed for, marketed to,
+        or directed at children under the age of 13 (or under 16 where
+        applicable under the General Data Protection Regulation).
+    </p>
+
+    <p>
+        Because the application does not collect any personal information,
+        the requirements of the Children's Online Privacy Protection Act
+        (COPPA) are satisfied by default. Parents who are concerned about
+        their child's use of the application can uninstall it through the
+        standard Android application manager at any time.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="international"><span class="num">11.</span>International Users</h2>
+
+    <p>
+        The application is published worldwide through the Google Play Store
+        wherever Google Play is available. Because no personal data is
+        collected, transmitted, or stored on Lycan Aerospace servers, no
+        cross-border data transfer takes place when you install or use the
+        application.
+    </p>
+
+    <p>
+        Users in the European Economic Area, the United Kingdom, and other
+        jurisdictions with comprehensive data-protection regulation may
+        treat this policy as satisfying the disclosure requirements of
+        their applicable law. Users in California may treat it as the
+        notice required by the California Consumer Privacy Act and the
+        California Privacy Rights Act.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="changes"><span class="num">12.</span>Changes to This Policy</h2>
+
+    <p>
+        If the application's behaviour changes in a way that affects this
+        policy, Lycan Aerospace will publish an updated version at the same
+        URL. Significant changes (for example, the introduction of a network
+        feature or the addition of an analytics component) will be
+        accompanied by a clear notice within the application before the new
+        behaviour takes effect, giving you an opportunity to discontinue
+        use if you wish.
+    </p>
+
+    <!-- ────────────────────────────────────────────────────────── -->
+    <h2 id="contact"><span class="num">13.</span>Contact Information</h2>
+
+    <p>
+        If you have any question or concern relating to this privacy
+        policy, or to your privacy rights with respect to Lycan Cast, please
+        contact Lycan Aerospace at
+        <a href="mailto:lycanaerospace@gmail.com">lycanaerospace@gmail.com</a>.
+    </p>
+
+    <p>
+        For matters related to the Google Play Store listing itself, please
+        also refer to the
+        <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
+    </p>
+
+</div>
+</main>
+
+<footer class="pfoot">
+    <div class="wrap pfoot-in">
+        <span>&copy; Lycan Aerospace. All rights reserved.</span>
+        <span>
+            <a href="../index.html">&larr; Back to home</a>
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+            <a href="mailto:lycanaerospace@gmail.com">Contact</a>
+        </span>
+    </div>
+</footer>
+
+</body>
+</html>
